@@ -36,31 +36,31 @@ def dashboard():
 
 @app.route('/api/naplan/')
 def get_all_movies():
-    query = f'SELECT * FROM naplan'
+    query = f'SELECT * FROM naplan LIMIT 100'
     cursor.execute(query)
     columns = [column[0] for column in cursor.description]
     rows = cursor.fetchall()
     result = [dict(zip(columns, row)) for row in rows]
     return jsonify(result)
 
-# # Sorted movies by attribute for index page
-# @app.route('/api/sorted_movies/<attribute>')
-# def get_sorted_movies(attribute):
-#     if attribute in ["Certificate", "Genre1"]:
-#         order = "ASC"
-#     else:
-#         order = "DESC"
-    
-#     if attribute == "~Randomized~":
-#         query = "SELECT * FROM movies ORDER BY RANDOM() DESC LIMIT 10"
-#     else:
-#         query = f'SELECT * FROM movies ORDER BY {attribute} {order}'
+# Sorted movies by attribute for index page
+@app.route('/api/domain')
+def get_data_by_domain():
+    domainFilterValue  = request.args.get('domainFilterValue', None)
+    stateFilterValue  = request.args.get('stateFilterValue', None)
 
-#     cursor.execute(query)
-#     columns = [column[0] for column in cursor.description]
-#     rows = cursor.fetchall()
-#     result = [dict(zip(columns, row)) for row in rows]
-#     return jsonify(result)
+    query = f'SELECT * FROM naplan'
+    # query = f'SELECT * FROM naplan ORDER BY {domainFilterValue} DESC LIMIT 10'
+    cursor.execute(query)
+    columns = [column[0] for column in cursor.description]
+    rows = cursor.fetchall()
+    result = [dict(zip(columns, row)) for row in rows]
+    if domainFilterValue != 'All':
+        result = [a for a in result if a['DOMAIN'] == domainFilterValue]
+    if stateFilterValue != 'All':
+        result = [a for a in result if a['STATE'] == stateFilterValue]
+    result = result[:100]
+    return jsonify(result)
 
 # # Sorted movies by attribute for index page
 # @app.route('/api/filtered_movies')

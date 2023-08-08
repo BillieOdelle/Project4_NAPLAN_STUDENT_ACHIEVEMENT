@@ -20,6 +20,7 @@
         class="banner d-flex flex-column align-items-center justify-content-center text-white px-3 mb-3"
       >
         <h1>Project 4: NAPLAN Student Achievement</h1>
+
         <p>
           Presented by
           <span class="text-bg-secondary text-fs-13 rounded-3 px-2 py-1"
@@ -50,6 +51,41 @@
       </div>
 
       <div class="mx-3">
+        <div class="alert">
+          Note: Retrieve 100 rows of data only. Not all data columns are listed.
+        </div>
+        <div class="d-flex gap-3">
+          <div class="input-group mb-3">
+            <span class="input-group-text text-bg-primary border-0"
+              >FILTER BY DOMAIN</span
+            >
+            <select class="form-select" id="domain-filter">
+              <option disabled selected value="">All</option>
+              <option value="0">Numeracy</option>
+              <option value="">Reading</option>
+              <option value="">Spelling</option>
+              <option value="">Writing</option>
+              <option value="">Grammar and Punctuation</option>
+            </select>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text text-bg-warning border-0"
+              >FILTER BY STATE</span
+            >
+            <select class="form-select" id="state-filter">
+              <option disabled selected value="">All</option>
+              <option value="">ACT</option>
+              <option value="">NSW</option>
+              <option value="">NT</option>
+              <option value="">QLD</option>
+              <option value="">SA</option>
+              <option value="">TAS</option>
+              <option value="">VIC</option>
+              <option value="">WA</option>
+            </select>
+          </div>
+        </div>
+
         <div class="table-responsive">
           <table
             id="data-table"
