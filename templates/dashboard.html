@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Movie Night Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="fluid-container text-bg-dark">
+      <div
+        class="banner d-flex flex-column align-items-center justify-content-center text-white px-3 mb-3"
+      >
+        <h1>Project 4: NAPLAN Student Achievement</h1>
+        <p>
+          Presented by
+          <span class="text-bg-secondary text-fs-13 rounded-3 px-2 py-1"
+            ><i class="fa fa-user me-1" aria-hidden="true"></i> Billie</span
+          >
+          <span class="text-bg-secondary text-fs-13 rounded-3 px-2 py-1"
+            ><i class="fa fa-user me-1" aria-hidden="true"></i> Enessa</span
+          >
+          <span class="text-bg-secondary text-fs-13 rounded-3 px-2 py-1"
+            ><i class="fa fa-user me-1" aria-hidden="true"></i> Rachel</span
+          >
+          <span class="text-bg-secondary text-fs-13 rounded-3 px-2 py-1"
+            ><i class="fa fa-user me-1" aria-hidden="true"></i> Minh</span
+          >
+        </p>
+        <div class="d-flex mt-4">
+          <a
+            href="/"
+            class="h5 text-light bg-transparent rounded-2 px-3 py-2 shadow-sm"
+            >DATA OVERVIEW</a
+          >
+          <a
+            href="/dashboard"
+            class="h5 text-light bg-danger rounded-2 px-3 py-2 shadow-sm"
+            >DATA EXPLORATION</a
+          >
+        </div>
+      </div>
+
+      <div class="mx-3 pb-5">
+        <h2 class="mb-3">Dashboard</h2>
+        <div class="d-flex flex-column gap-5">
+          <div class="row">
+            <div class="col">
+              <div
+                class="p-3 w-100 h-100 text-bg-primary bg-gradient rounded-3 d-flex flex-column align-items-center justify-content-center shadow-sm statistic"
+              >
+                <div
+                  class="d-flex flex-column justify-content-center align-items-center"
+                >
+                  <h4 class="text-center">Number of Movies</h4>
+                  <div class="text-center">From 1920 to 2020</div>
+                  <div class="fs-3 text-center">1000</div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div
+                class="p-3 w-100 h-100 text-bg-primary bg-gradient rounded-3 d-flex flex-column align-items-center justify-content-center shadow-sm statistic"
+              >
+                <div
+                  class="d-flex flex-column justify-content-center align-items-center"
+                >
+                  <h4 class="text-center">Total Gross</h4>
+
+                  <div class="text-center">of 830 movies</div>
+                  <div class="fs-3 text-center">$56,363,040,043</div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div
+                class="p-3 w-100 h-100 text-bg-primary bg-gradient rounded-3 d-flex flex-column align-items-center justify-content-center shadow-sm statistic"
+              >
+                <div
+                  class="d-flex flex-column justify-content-center align-items-center"
+                >
+                  <h4 class="text-center">Top 1 Movie</h4>
+
+                  <div class="text-center">by IMDB Rating</div>
+                  <div class="fs-3 text-center">The Shawshank Redemption</div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div
+                class="p-3 w-100 h-100 text-bg-primary bg-gradient rounded-3 d-flex flex-column align-items-center justify-content-center shadow-sm statistic"
+              >
+                <div
+                  class="d-flex flex-column justify-content-center align-items-center"
+                >
+                  <h4 class="text-center">Top 1 Genre</h4>
+                  <div class="text-center">with 289 movies</div>
+                  <div class="fs-3 text-center">Drama</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-8">
+              <div class="m-2 border w-100 h-100 shadow-sm rounded-3 p-3">
+                <canvas id="bubble-chart"></canvas>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="m-2 border w-100 h-100 shadow-sm rounded-3 p-3">
+                <canvas id="top-genre"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-5">
+              <div class="m-2 border w-100 h-100 shadow-sm rounded-3 p-3">
+                <h5 class="mb-4 text-center">Top 10 Movies by IMDB Rating</h5>
+                <table
+                  id="top-imdb"
+                  class="table table-sm table-striped text-fs-13"
+                ></table>
+              </div>
+            </div>
+            <div class="col-7">
+              <div class="m-2 border w-100 h-100 shadow-sm rounded-3 p-3">
+                <canvas id="top-gross"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="m-2 border w-100 h-100 shadow-sm rounded-3 p-3">
+                <canvas id="top-genre-by-gross"></canvas>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="m-2 border w-100 h-100 shadow-sm rounded-3 p-3">
+                <h5 class="mb-4 text-center">Top 10 Directors by Gross</h5>
+                <table
+                  id="top-director-by-gross"
+                  class="table table-sm table-striped text-fs-13"
+                ></table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../static/dashboard.js"></script>
+  </body>
+</html>
