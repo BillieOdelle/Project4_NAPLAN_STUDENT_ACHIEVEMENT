@@ -1,4 +1,5 @@
 import csv
+import json
 import pandas as pd
 from sqlalchemy import create_engine
 import sqlite3
@@ -33,6 +34,25 @@ def index():
 @app.route('/dashboard')
 def dashboard():
     return render_template('dashboard.html')
+
+@app.route('/api/enrolled_students')
+def enrolled_students():
+    with open('./data/enrolled_students.json', 'r') as f:
+        data = json.load(f)
+    return jsonify(data)
+
+@app.route('/api/mean_scores')
+def mean_scores():
+    with open('./data/mean_scores.json', 'r') as f:
+        data = json.load(f)
+    return jsonify(data)
+
+@app.route('/api/mean_scores_by_state')
+def mean_scores_by_state():
+    with open('./data/mean_scores_by_state_and_year.json', 'r') as f:
+        data = json.load(f)
+    return jsonify(data)
+
 
 @app.route('/api/naplan/')
 def get_all_movies():

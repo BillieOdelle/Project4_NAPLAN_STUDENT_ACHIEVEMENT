@@ -50,105 +50,70 @@
       </div>
 
       <div class="mx-3 pb-5">
-        <h2 class="mb-3">Dashboard</h2>
-        <div class="d-flex flex-column gap-5">
+        <div class="d-flex flex-column gap-5 my-5">
           <div class="row">
-            <div class="col">
+            <div class="col-8">
               <div
-                class="p-3 w-100 h-100 text-bg-primary bg-gradient rounded-3 d-flex flex-column align-items-center justify-content-center shadow-sm statistic"
+                class="m-2 border w-100 h-100 shadow-sm rounded-3 p-3 text-bg-light"
               >
-                <div
-                  class="d-flex flex-column justify-content-center align-items-center"
-                >
-                  <h4 class="text-center">Number of Movies</h4>
-                  <div class="text-center">From 1920 to 2020</div>
-                  <div class="fs-3 text-center">1000</div>
-                </div>
+                <canvas id="enrolled-students"></canvas>
               </div>
             </div>
-            <div class="col">
+            <div class="col-4">
               <div
-                class="p-3 w-100 h-100 text-bg-primary bg-gradient rounded-3 d-flex flex-column align-items-center justify-content-center shadow-sm statistic"
+                class="m-2 border w-100 h-100 shadow-sm rounded-3 p-3 border-0"
+              >
+                <canvas id="enrolled-students-pie"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <div
+                class="p-3 w-100 h-100 text-bg-primary bg-gradient rounded-3 d-flex flex-column align-items-center justify-content-center shadow-sm statistic m-2 rounded-3 p-3"
               >
                 <div
                   class="d-flex flex-column justify-content-center align-items-center"
                 >
-                  <h4 class="text-center">Total Gross</h4>
+                  <h2 class="text-center">ACT</h2>
 
-                  <div class="text-center">of 830 movies</div>
-                  <div class="fs-3 text-center">$56,363,040,043</div>
+                  <div class="text-center">
+                    the state with the highest average score
+                  </div>
+                  <div class="fs-1 text-center">515.471</div>
                 </div>
               </div>
             </div>
-            <div class="col">
+            <div class="col-8">
               <div
-                class="p-3 w-100 h-100 text-bg-primary bg-gradient rounded-3 d-flex flex-column align-items-center justify-content-center shadow-sm statistic"
+                class="m-2 border w-100 h-100 shadow-sm rounded-3 p-3 text-bg-light"
               >
-                <div
-                  class="d-flex flex-column justify-content-center align-items-center"
-                >
-                  <h4 class="text-center">Top 1 Movie</h4>
-
-                  <div class="text-center">by IMDB Rating</div>
-                  <div class="fs-3 text-center">The Shawshank Redemption</div>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div
-                class="p-3 w-100 h-100 text-bg-primary bg-gradient rounded-3 d-flex flex-column align-items-center justify-content-center shadow-sm statistic"
-              >
-                <div
-                  class="d-flex flex-column justify-content-center align-items-center"
-                >
-                  <h4 class="text-center">Top 1 Genre</h4>
-                  <div class="text-center">with 289 movies</div>
-                  <div class="fs-3 text-center">Drama</div>
-                </div>
+                <canvas id="mean-scores"></canvas>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-8">
-              <div class="m-2 border w-100 h-100 shadow-sm rounded-3 p-3">
-                <canvas id="bubble-chart"></canvas>
+              <div
+                class="m-2 border w-100 h-100 shadow-sm rounded-3 p-3 text-bg-light"
+              >
+                <canvas id="mean-scores-by-state"></canvas>
               </div>
             </div>
             <div class="col-4">
-              <div class="m-2 border w-100 h-100 shadow-sm rounded-3 p-3">
-                <canvas id="top-genre"></canvas>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-5">
-              <div class="m-2 border w-100 h-100 shadow-sm rounded-3 p-3">
-                <h5 class="mb-4 text-center">Top 10 Movies by IMDB Rating</h5>
-                <table
-                  id="top-imdb"
-                  class="table table-sm table-striped text-fs-13"
-                ></table>
-              </div>
-            </div>
-            <div class="col-7">
-              <div class="m-2 border w-100 h-100 shadow-sm rounded-3 p-3">
-                <canvas id="top-gross"></canvas>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-6">
-              <div class="m-2 border w-100 h-100 shadow-sm rounded-3 p-3">
-                <canvas id="top-genre-by-gross"></canvas>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="m-2 border w-100 h-100 shadow-sm rounded-3 p-3">
-                <h5 class="mb-4 text-center">Top 10 Directors by Gross</h5>
-                <table
-                  id="top-director-by-gross"
-                  class="table table-sm table-striped text-fs-13"
-                ></table>
+              <div
+                class="p-3 w-100 h-100 text-bg-primary bg-gradient rounded-3 d-flex flex-column align-items-center justify-content-center shadow-sm statistic m-2 rounded-3 p-3"
+              >
+                <div
+                  class="d-flex flex-column justify-content-center align-items-center"
+                >
+                  <h2 class="text-center">NT</h2>
+
+                  <div class="text-center">
+                    the state with the lowest average score
+                  </div>
+                  <div class="fs-1 text-center">429.906</div>
+                </div>
               </div>
             </div>
           </div>
