@@ -64,8 +64,9 @@ def get_all_movies():
     return jsonify(result)
 
 # Sorted movies by attribute for index page
-@app.route('/api/domain')
+@app.route('/api/filter')
 def get_data_by_domain():
+    yearFilterValue  = request.args.get('yearFilterValue', None)
     domainFilterValue  = request.args.get('domainFilterValue', None)
     stateFilterValue  = request.args.get('stateFilterValue', None)
 
@@ -75,6 +76,8 @@ def get_data_by_domain():
     columns = [column[0] for column in cursor.description]
     rows = cursor.fetchall()
     result = [dict(zip(columns, row)) for row in rows]
+    if yearFilterValue != 'All':
+        result = [a for a in result if a['YEAR_LEVEL'] == int(yearFilterValue)]
     if domainFilterValue != 'All':
         result = [a for a in result if a['DOMAIN'] == domainFilterValue]
     if stateFilterValue != 'All':
