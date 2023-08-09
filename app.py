@@ -53,6 +53,12 @@ def mean_scores_by_state():
         data = json.load(f)
     return jsonify(data)
 
+@app.route('/api/mean_scores_by_year_level')
+def mean_scores_by_year_level():
+    with open('./data/mean_scores_by_year_level_and_year.json', 'r') as f:
+        data = json.load(f)
+    return jsonify(data)
+
 
 @app.route('/api/naplan/')
 def get_all_movies():
@@ -71,7 +77,6 @@ def get_data_by_domain():
     stateFilterValue  = request.args.get('stateFilterValue', None)
 
     query = f'SELECT * FROM naplan'
-    # query = f'SELECT * FROM naplan ORDER BY {domainFilterValue} DESC LIMIT 10'
     cursor.execute(query)
     columns = [column[0] for column in cursor.description]
     rows = cursor.fetchall()
@@ -82,7 +87,7 @@ def get_data_by_domain():
         result = [a for a in result if a['DOMAIN'] == domainFilterValue]
     if stateFilterValue != 'All':
         result = [a for a in result if a['STATE'] == stateFilterValue]
-    result = result[:100]
+    result = result[:100] # Get 100 rows only
     return jsonify(result)
 
 # # Sorted movies by attribute for index page
