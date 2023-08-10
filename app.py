@@ -7,7 +7,7 @@ from flask import Flask, request, render_template, jsonify
 from sqlalchemy.orm import Session 
 
 
-data = pd.read_csv('./Resources/Naplan_results_clean.csv')
+data = pd.read_csv('./Resources/Naplan_results.csv')
 
 engine= create_engine('sqlite:///NAPLAN_SQLDB.db')
 
@@ -37,25 +37,25 @@ def dashboard():
 
 @app.route('/api/enrolled_students')
 def enrolled_students():
-    with open('./data/enrolled_students.json', 'r') as f:
+    with open('./Resources/enrolled_students.json', 'r') as f:
         data = json.load(f)
     return jsonify(data)
 
 @app.route('/api/mean_scores')
 def mean_scores():
-    with open('./data/mean_scores.json', 'r') as f:
+    with open('./Resources/mean_scores.json', 'r') as f:
         data = json.load(f)
     return jsonify(data)
 
 @app.route('/api/mean_scores_by_state')
 def mean_scores_by_state():
-    with open('./data/mean_scores_by_state_and_year.json', 'r') as f:
+    with open('./Resources/mean_scores_by_state_and_year.json', 'r') as f:
         data = json.load(f)
     return jsonify(data)
 
 @app.route('/api/mean_scores_by_year_level')
 def mean_scores_by_year_level():
-    with open('./data/mean_scores_by_year_level_and_year.json', 'r') as f:
+    with open('./Resources/mean_scores_by_year_level_and_year.json', 'r') as f:
         data = json.load(f)
     return jsonify(data)
 
