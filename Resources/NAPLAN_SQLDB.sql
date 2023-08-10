@@ -1,5 +1,5 @@
 -- drop tables if exists
-drop table if exists Naplan_results_clean;
+drop table if exists naplan_results_clean;
 
 CREATE TABLE naplan(
 CALENDAR_YEAR INT,
@@ -41,5 +41,5 @@ NOD_MEAN_BASE VARCHAR,
 NOD_NMS_BASE VARCHAR
 );
 
-SELECT * FROM Naplan_results_clean
+SELECT * FROM naplan_results_clean
 
